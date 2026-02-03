@@ -1,4 +1,15 @@
+show databases
 use("aula02")
+
+// ---- INSERT ------------------------------------------------------------------------
+
+// db. [collection]. insertOne/Many
+
+// db.people.insertOne({
+//     name: "Anna",
+//     age: 19,
+//     salary: 2100
+// })
 
 db.people.insertMany([
     {
@@ -63,6 +74,7 @@ db.people.insertMany([
     }
 ])
 
+// ---- FIND ------------------------------------------------------------------------
 
 use("aula02")
 db.people.find() // busca todos os dados do bd
@@ -77,8 +89,22 @@ use("aula02")
 db.people.find({name: /^L.*e$/}) // busca um nome que começa com L e termina com E
 
 use("aula02")
-db.people.find({ $and: [{name: "Nicolas"}, {lastname: "Marques"}] })
+db.people.find({ $and: [{name: "Nicolas"}, {lastname: "Marques"}] }) // busca com mais de um parâmetro
 
 use("aula02")
-db.people.find({salary: {$gte: 7000}}, {name: 1, lastname: 1})
+db.people.find({salary: {$gte: 7000}}, {name: 1, lastname: 1}) 
 
+
+// ---- UPDATE e DELETE ------------------------------------------------------------------------
+
+// jeito antigo
+
+use("aula02")
+db.people.updateOne(
+    { _id: ObjectId('6981f5018d1ac46ee141e037') },
+    { $set: {salary: 2500} }
+
+);use("aula02")
+db.people.deleteOne(
+    { _id: ObjectId('6981f5018d1ac46ee141e037') }
+);
