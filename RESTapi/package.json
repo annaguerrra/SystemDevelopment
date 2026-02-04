@@ -1,0 +1,19 @@
+{
+  "name": "aula01",
+  "version": "1.0.0",
+  "description": "REST api class",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/annaguerrra/SystemDevelopment.git"
+  },
+  "author": "annaguerrra",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/annaguerrra/SystemDevelopment/issues"
+  },
+  "homepage": "https://github.com/annaguerrra/SystemDevelopment#readme"
+}
