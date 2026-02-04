@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npx tsx watch src/server.ts",
     "start": "node test.js"
   },
   "repository": {
@@ -17,5 +18,10 @@
     "url": "https://github.com/annaguerrra/SystemDevelopment/issues"
   },
   "homepage": "https://github.com/annaguerrra/SystemDevelopment#readme",
-  "type": "module"
+  "type": "module",
+  "devDependencies": {
+    "@types/node": "^25.2.0",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
+  }
 }
