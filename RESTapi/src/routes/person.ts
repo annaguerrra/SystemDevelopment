@@ -7,7 +7,11 @@ router
     .post('/registrar', (req: Request, res: Response) => {
         const { name, lastname } = req.body
         console.log(name, lastname);
-        res.status(200).send(`Nome: ${name} ${lastname}`)
+        people.push({name, lastname})
+        res.status(200).send({message:`Bem vindo(a), ${name} ${lastname}! Cadastro realizado com sucesso`})
+    })
+    .get('/users', (req: Request, res: Response) => {
+        res.status(200).send({users: people})
     })
 
 export default router;
