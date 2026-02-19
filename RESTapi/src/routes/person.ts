@@ -1,13 +1,19 @@
 import express, {Request, response, Response, Router} from 'express';
 
+interface Person{
+    name: string
+    lastname: string
+    id: number
+}
+
 const router: Router = express.Router();
-const people: object[] = [];
+const people: Person[] = [];
 
 router
     .post('/register', (req: Request, res: Response) => {
         const { id, name, lastname } = req.body
         console.log(name, lastname);
-        people.push({name, lastname})
+        people.push({id, name, lastname})
         res.status(200).send({message:`Welcome, ${name} ${lastname}! Successfully registered.`})
     })
     .get('/users', (req: Request, res: Response) => {
@@ -17,7 +23,8 @@ router
         const { id } = req.params
 
         let convertedId = Number(id)
-        res.status(200).send({ response: people[convertedId] })
+        let user = people.find((person) => person.id == convertedId)
+        res.status(200).send({ person: user})
     })
     .get('/filter', (req: Request, res: Response) => {
         const {name, lastname } = req.query
