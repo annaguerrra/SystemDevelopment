@@ -5,7 +5,7 @@ const port = 8080;
 const app = express();
 
 app.get('/', (req, res) => {
-    res.send({response: "Api funcionando"})
+    res.send({response: "Api's working"})
 })
 
 const pessoa = {
@@ -14,17 +14,17 @@ const pessoa = {
     age: 19
 }
 
-app.get('/objeto', (req, res) => {
+app.get('/object', (req, res) => {
     res.send({pessoas: pessoa})
 })
 
 app.get('/', (req, res) => {
-    res.status(200).send({response: "Api funcionando"})
+    res.status(200).send({response: "Api's working"})
 })
 
 routes(app)
 app.listen(port, () => {
-    console.log(`Servidor rodando na porta ${port}`)
+    console.log(`Server running on port ${port}`)
 })
 
 // app.get('/direto', (req, res) => {

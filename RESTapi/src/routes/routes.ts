@@ -7,3 +7,4 @@ export default function (app: Express){
         .use(express.json())
         .use(`/api/person`, person)
 }
+
