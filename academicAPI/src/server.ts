@@ -4,11 +4,11 @@
 // Before integrating the database, the team decided to create a functional REST API with in-memory storage to validate the business rules and allow front-end tests.
 
 import  express  from 'express';
+import connectDB from './database/database.js';
 
 const app = express();
 const port = 8080;
 
+await connectDB();
 app.listen(port, () => console.log(`Acesse: http://localhost:${port}/`));
-
-// Application Requests
 
