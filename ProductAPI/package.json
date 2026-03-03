@@ -1,0 +1,22 @@
+{
+  "name": "productapi",
+  "version": "1.0.0",
+  "description": "Product API developed during class",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/annaguerrra/SystemDevelopment.git"
+  },
+  "author": "annaguerrra",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/annaguerrra/SystemDevelopment/issues"
+  },
+  "homepage": "https://github.com/annaguerrra/SystemDevelopment#readme",
+  "dependencies": {
+    "mongoose": "^9.2.3"
+  }
+}
