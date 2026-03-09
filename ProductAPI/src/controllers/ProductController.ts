@@ -53,4 +53,7 @@ class ProductController {
             return res.status(500).json({ e: "Error completing request."})
         }
     }
+    static async findById( req: Request, res: Response){
+        const { id } = req
+    }
 }
