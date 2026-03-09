@@ -3,8 +3,10 @@
   "version": "1.0.0",
   "description": "Product API developed during class",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npx tsx watch src/server.ts"
   },
   "repository": {
     "type": "git",
@@ -17,6 +19,13 @@
   },
   "homepage": "https://github.com/annaguerrra/SystemDevelopment#readme",
   "dependencies": {
+    "@types/express": "^5.0.6",
+    "express": "^5.2.1",
     "mongoose": "^9.2.3"
+  },
+  "devDependencies": {
+    "@types/node": "^25.3.5",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
   }
 }
