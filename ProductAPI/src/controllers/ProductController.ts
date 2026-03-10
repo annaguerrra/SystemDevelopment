@@ -13,16 +13,18 @@ class ProductController {
             }
     
             const product = new Product({
-                name,
-                category,
+                name: name,
+                category: category,
                 price: Number(price) ,
                 stock: Number(stock),
-                description
+                description: description
             });
-    
-            await product.save();
-            return res.status(201).json(product)
+
+            const salvo = await product.save();
+            
+            return res.status(201).json(salvo)
         } catch(e) {
+            console.log(e);
             return res.status(500).json({
                 e: "Error completing request"
             });
