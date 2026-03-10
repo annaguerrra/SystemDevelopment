@@ -54,6 +54,68 @@ class ProductController {
         }
     }
     static async findById( req: Request, res: Response){
-        const { id } = req
+        try{
+            const { id } = req.params;
+
+            if(!id) return res.status(400).json({ e: "Error: Product Not Found" })  
+
+            const convertedId = Number(id);
+            const product = await Product.findOne({convertedId});
+
+            return res.status(201).json(product);
+
+        }   catch(e) {
+            return res.status(500).json({
+                e: "Error: Product Not Found"
+            }) 
+        }
+    }
+    static async update (req: Request, res: Response){
+        try{
+            const { id } = req.params;
+
+            const product = await Product.findByIdAndUpdate(
+                id,
+                req.body,
+                { new: true }
+            )
+
+            if(!product){
+                return res.status(404).json({ e: "Product Not Found" });
+            }
+
+            return res.status(200).json({
+                message: "Product updated successfully!",
+                product: product
+            });
+
+        } catch(e) {
+            res.status(500).json({
+                e: "Server Error"
+            })
+        }
+    }
+    static async remove( req: Request, res: Response){
+        try{
+            const { id } = req.query;
+
+            if(!id) return res.status(404).json({ e: "Error: Product Not Found" })  
+
+            const convertedId = Number(id);
+            const product = await Product.deleteOne({convertedId});
+
+            
+
+            return res.status(201).json({
+                message: "Product deleted successfully",
+                product: product
+            });
+
+        }   catch(e) {
+            return res.status(500).json({
+                e: "Server Error"
+            }) 
+        }
     }
 }
+export default ProductController;
