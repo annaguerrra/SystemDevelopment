@@ -97,7 +97,7 @@ class ProductController {
     }
     static async remove( req: Request, res: Response){
         try{
-            const { id } = req.query;
+            const { id } = req.params;
 
             if(!id) return res.status(404).json({ e: "Error: Product Not Found" })  
 

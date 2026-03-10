@@ -8,8 +8,8 @@ const router: Router = express.Router()
 router
     .post('/products',       ProductController.create)
     .get('/products',        ProductController.findAll)
-    .get('/product/:id',     ProductController.findById)
-    .put('/update', validateObjectId, ProductController.update)
+    .get('/products/:id',     ProductController.findById)
+    .put('/products', validateObjectId, ProductController.update)
     .delete('/products/:id', ProductController.remove)
 
 export default router
