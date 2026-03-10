@@ -1,24 +1,34 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
-import { Stack } from 'expo-router';
-import { StatusBar } from 'expo-status-bar';
-import 'react-native-reanimated';
+import { useEffect, useState } from 'react'
+import axios from 'axios'
 
-import { useColorScheme } from '@/hooks/use-color-scheme';
+function App() {
+  const [ product, setProduct ] = useState<any[]>([])
 
-export const unstable_settings = {
-  anchor: '(tabs)',
-};
+  const fetchData = async () => {
+    try{
+      const response = await axios.get(`http://localhost:8080/api/products`)
+      setProduct(response.data)
+    } catch(e) {
+      console.error(e)
+    }
+  }
 
-export default function RootLayout() {
-  const colorScheme = useColorScheme();
+  useEffect(() => {
+    fetchData()
+  }, [])
 
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="modal" options={{ presentation: 'modal', title: 'Modal' }} />
-      </Stack>
-      <StatusBar style="auto" />
-    </ThemeProvider>
-  );
+    <>
+      <h1>Products</h1>
+
+      { product.map((product: any) => (
+        <div key={product._id}>
+          <h3>{product.name}</h3>
+          <p>Price: { product.price }</p>
+        </div>
+      ))}
+    </>
+  )
 }
+
+export default App
