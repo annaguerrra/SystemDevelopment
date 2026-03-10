@@ -20,9 +20,10 @@
   "homepage": "https://github.com/annaguerrra/SystemDevelopment#readme",
   "dependencies": {
     "@types/express": "^5.0.6",
+    "config": "^4.4.1",
     "express": "^5.2.1",
     "middleware": "^1.0.0",
-    "mongoose": "^9.2.3"
+    "mongoose": "^9.2.4"
   },
   "devDependencies": {
     "@types/node": "^25.3.5",
