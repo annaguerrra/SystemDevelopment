@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { StyleSheet, View } from 'react-native'
 import axios from 'axios'
 
 function App() {
@@ -19,7 +20,10 @@ function App() {
 
   return (
     <>
-      <h1>Products</h1>
+    <View style ={ styles.container }>
+      <h1 style={styles.header}>Products</h1>
+
+    </View>
 
       { product.map((product: any) => (
         <div key={product._id}>
@@ -30,5 +34,26 @@ function App() {
     </>
   )
 }
+
+const styles= StyleSheet.create({
+  container:{
+    flex: 1,
+    alignItems: "center",
+
+    backgroundColor: "#111111"
+  },
+  header:{
+    color: "#F5F5F5",
+    fontSize: 36
+  },
+  boxTitle:{
+    width: 30,
+    height: 18,
+
+    borderColor: "#F5F5F5"
+  }
+
+})
+
 
 export default App
